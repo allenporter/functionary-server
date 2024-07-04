@@ -12,13 +12,19 @@ RUN apt-get update && \
 
 # Accellerator specific dependencies
 RUN apt-get install -y \
-        ocl-icd-opencl-dev \
-        opencl-headers \
         clinfo \
-        libclblast-dev \
-        libopenblas-dev \
         && \
     rm -rf /var/lib/apt/lists/*
+
+# ocl-icd-opencl-dev \
+# opencl-headers \
+# clinfo \
+# libclblast-dev \
+# libopenblas-dev \
+
+echo "Listing 100 largest packages"
+dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+df -h
 
 # Clone repo
 ARG FUNCTIONARY_REPO="MeetKai/functionary"
