@@ -22,9 +22,9 @@ RUN apt-get install -y \
 # libclblast-dev \
 # libopenblas-dev \
 
-echo "Listing 100 largest packages"
-dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
-df -h
+RUN echo "Listing 100 largest packages"
+RUN dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -n | tail -n 100
+RUN df -h
 
 # Clone repo
 ARG FUNCTIONARY_REPO="MeetKai/functionary"
