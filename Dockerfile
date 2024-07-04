@@ -26,11 +26,11 @@ ARG FUNCTIONARY_VERSION="main"
 WORKDIR /workspace
 RUN git clone -b $FUNCTIONARY_VERSION https://github.com/$FUNCTIONARY_REPO .
 
+WORKDIR /workspace/functionary
+
 # Install requirements
-ENV SRC_DIR=/workspace/$FUNCTIONARY_REPO
-RUN pip3 install -r $SRC_DIR/requirements.txt
+RUN pip3 install -r ./requirements.txt
 
 # Run server
-WORKDIR $SRC_DIR
 EXPOSE ${PORT}
 ENTRYPOINT [ "python3", "-m", "server_vllm.py" ]
