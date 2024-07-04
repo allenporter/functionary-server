@@ -24,7 +24,7 @@ RUN apt-get install -y \
 ARG FUNCTIONARY_REPO="MeetKai/functionary"
 ARG FUNCTIONARY_VERSION="main"
 WORKDIR /workspace
-RUN git clone -b $FUNCTIONARY_VERSION https://github.com/$FUNCTIONARY_REPO .
+RUN git clone -b $FUNCTIONARY_VERSION https://github.com/$FUNCTIONARY_REPO
 
 WORKDIR /workspace/functionary
 
