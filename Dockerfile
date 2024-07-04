@@ -43,7 +43,7 @@ USER admin
 WORKDIR /workspace/functionary
 
 # Install requirements
-RUN pip3 install -r ./requirements.txt
+RUN pip3 install -r ./requirements.txt --no-warn-script-locatio
 
 # Run server
 EXPOSE ${PORT}
