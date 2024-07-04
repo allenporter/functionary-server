@@ -1,4 +1,23 @@
-FROM nvcr.io/nvidia/pytorch:24.06-py3
+FROM nvidia/cuda:12.1.1-devel-ubuntu22.04
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+        python3 \
+        python3-pip \
+        build-essential \
+        && \
+    python3 -m pip install --upgrade pip
+
+# Accellerator specific dependencies
+RUN apt-get install -y \
+        ocl-icd-opencl-dev \
+        opencl-headers \
+        clinfo \
+        libclblast-dev \
+        libopenblas-dev \
+        && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN apk add --no-cache git go
 
