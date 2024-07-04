@@ -6,6 +6,7 @@ RUN apt-get update && \
         python3 \
         python3-pip \
         build-essential \
+        git \
         && \
     python3 -m pip install --upgrade pip
 
@@ -18,8 +19,6 @@ RUN apt-get install -y \
         libopenblas-dev \
         && \
     rm -rf /var/lib/apt/lists/*
-
-RUN apk add --no-cache git go
 
 # Clone repo
 ARG FUNCTIONARY_REPO="MeetKai/functionary"
