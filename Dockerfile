@@ -32,4 +32,4 @@ RUN pip3 install -r ./requirements.txt
 
 # Run server
 EXPOSE ${PORT}
-ENTRYPOINT [ "python3", "-m", "server_vllm.py" ]
+ENTRYPOINT [ "python3", "-m", "server_vllm" ]
